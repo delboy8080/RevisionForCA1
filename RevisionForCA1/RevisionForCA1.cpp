@@ -14,7 +14,7 @@ string toBinary(int x)
 	return toBinary(x / 2) + to_string(x % 2) ;
 }
 
-string reverse(string s, int index=0)
+string reverse(string &s, int index=0)
 {
 	if (s.length() == index)
 	{
@@ -23,10 +23,20 @@ string reverse(string s, int index=0)
 	return reverse(s, index + 1) + s[index];
 }
 
+string reverse2(string s)
+{
+	if (s.length() == 0)
+	{
+		return "";
+	}
+	return reverse2(s.substr(1)) + s[0];
+}
+
 int main()
 {
 	cout << toBinary(6) << endl;
-	cout << reverse("pots&pans") << endl;
+	string s = "pots&pans";
+	cout << reverse(s) << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
